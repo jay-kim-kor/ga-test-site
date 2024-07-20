@@ -1,5 +1,5 @@
 import './App.css'
-import { Link, BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Link, HashRouter as Router, Routes, Route } from 'react-router-dom'
 import Post from './post'
 import ReactGA from 'react-ga4'
 import { useEffect } from 'react'
