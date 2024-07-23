@@ -6,9 +6,10 @@ import { useEffect } from 'react'
 
 function usePageViews() {
   useEffect(() => {
+    const pagePath = window.location.pathname + window.location.search + window.location.hash
     ReactGA.send({
       hitType: 'pageview',
-      page: window.location.pathname + window.location.search
+      page: pagePath
     })
   }, [location])
 }
