@@ -1,7 +1,9 @@
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import { usePageViews } from './App';
 
 const Post = () => {
+  usePageViews()
   const { postId } = useParams()
   const number = postId ? parseInt(postId) : 0
 

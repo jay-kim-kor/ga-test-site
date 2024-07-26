@@ -1,27 +1,34 @@
 import './App.css'
-import { Link, HashRouter as Router, Routes, Route } from 'react-router-dom'
+import { Link, useLocation, HashRouter as Router, Routes, Route } from 'react-router-dom'
 import Post from './post'
 import ReactGA from 'react-ga4'
 import { useEffect } from 'react'
 
-function usePageViews() {
+export function usePageViews() {
+  const location = useLocation()
+  // const pagePath = window.location.pathname + window.location.search + window.location.hash
+  // console.log(pagePath)
+  // console.log(window.location.hash)
+  // ReactGA.send({
+  //   hitType: 'pageview',
+  //   page: pagePath
+  // })
   useEffect(() => {
-    const pagePath = window.location.pathname + window.location.search + window.location.hash
+    const pagePath = location.pathname + location.hash
+    console.log(pagePath)
     ReactGA.send({
       hitType: 'pageview',
       page: pagePath
     })
     ReactGA.event({
-      category: "page_view",
-      action: "Page is moved",
-      label: pagePath
+      category: "Page View",
+      action: "Page Moved",
+      label: `${pagePath}`
     })
   }, [location])
 }
 
 function App() {
-  usePageViews()
-
   return (
     <>
       <Router>
