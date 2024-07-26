@@ -11,6 +11,11 @@ function usePageViews() {
       hitType: 'pageview',
       page: pagePath
     })
+    ReactGA.event({
+      category: "page_view",
+      action: "Page is moved",
+      label: pagePath
+    })
   }, [location])
 }
 
