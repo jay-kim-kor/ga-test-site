@@ -20,10 +20,11 @@ export function usePageViews() {
       hitType: 'pageview',
       page: pagePath
     })
-    ReactGA.event({
-      category: "Page View",
-      action: "Page Moved",
-      label: `${pagePath}`
+    ReactGA.event('page_view_hash', {
+      category: "page_view_hash",
+      action: "page_view_hash",
+      label: `${pagePath}`,
+      page: pagePath
     })
   }, [location])
 }
